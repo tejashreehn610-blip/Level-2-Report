@@ -4,6 +4,61 @@
 I have learnt the basics of MATLAB.
 ![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/e76826e524ae5ba391d4d6b7c7e0484e58a0d3c0/Screenshot%202026-10-09%20235100.png)\
 ![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/e76826e524ae5ba391d4d6b7c7e0484e58a0d3c0/Screenshot%202026-10-10%20000110.png)\
+# TASK 4 Advanced PID Tuning :
+
+---
+
+## 1. Executive Summary & PID Fundamentals
+
+A Proportional-Integral-Derivative (PID) controller is a control loop feedback mechanism widely used in industrial control systems and autonomous vehicles. It continuously calculates an error value as the difference between a desired setpoint r(t) and a measured process variable y(t), and applies a correction based on proportional, integral, and derivative terms.
+
+---
+
+## 2. Learnings from Video Resources (PID in Depth)
+
+Based on reviewing the core PID resource playlist, the breakdown of each tuning parameter is as follows:
+
+*   **Proportional (P):** 
+    *   *Function:* Reacts directly to the current error.
+    *   *Effect:* Reduces the rise time and steady-state error. However, setting P too high leads to aggressive oscillations, system overshoot, and instability.
+*   **Integral (I):** 
+    *   *Function:* Accumulates the error over time.
+    *   *Effect:* Eliminates steady-state errors (such as persistent wind drift or imbalances). Too much I, however, causes slow oscillations, phase lag, and integrator windup.
+*   **Derivative (D):** 
+    *   *Function:* Predicts future error by evaluating the rate of change.
+    *   *Effect:* Acts as a damper to smooth out system response, reduce overshoot, and improve transient stability. High $D$ values amplify high-frequency sensor noise.
+
+---
+
+## 3. UAV Mission Planner PID Configuration
+
+Connecting a UAV flight controller to Mission Planner allows monitoring and modifying the stabilization loop parameters:
+
+| Axis | Proportional (P) | Integral (I) | Derivative (D) | Description & Observations |
+| :--- | :--- | :--- | :--- | :--- |
+| **Roll** | 0.135 | 0.135 | 0.0036 | Manages lateral stabilization; reacts immediately to rolling disturbances. |
+| **Pitch** | 0.135 | 0.135 | 0.0036 | Manages longitudinal tilt; mirrors Roll performance on symmetric frames. |
+| **Yaw** | 0.200 | 0.020 | 0.0000 | Controls heading rotation; typically requires lower damping due to rotational inertia. |
+
+---
+
+## 4. Self-Balancing Car Implementation
+
+A two-wheeled self-balancing robot was built to validate PID principles in hardware:
+
+1. **Sensor Fusion:** An MPU6050 IMU combines accelerometer data (gravity reference) and gyroscope data (rotation rate) via a complementary filter to determine the precise tilt angle.
+2. **Control Loop:** Operating at a consistent loop frequency (e.g., every 10 milliseconds), the microcontroller calculates the PID output based on the tilt angle error.
+3. **Actuation:** The computed control output adjusts the PWM signals sent to the motor driver, driving the wheels forward or backward to counteract the falling motion and maintain balance.
+
+---
+
+## 5. Experimental Tuning Observations
+
+Tuning the system iteratively using manual trial-and-error yielded the following practical behaviors:
+
+*   **Tuning P Independently:** Setting I=0 and D=0 and raising $P$ caused the robot to rapidly twitch and oscillate back and forth across the balance point without stopping.
+*   **Adding D Damping:** Introducing the D term successfully dampened the rapid oscillations, stabilizing the snapping movements and bringing the system to a smooth equilibrium.
+*   **Adding I Correction:** Adding a small amount of I eliminated slight steady-state leaning biases caused by uneven weight distribution, whereas an excessive I value caused slow, growing oscillations.
 # TASK 5 RULES IN THE RULE BOOK WRITTEN BY BLOOD :
 **Objective :**
 * Take an example of a previous Air Crash from [Wyngx](https://www.youtube.com/@_WyngX/videos) or any other source of your choice.
