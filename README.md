@@ -13,7 +13,54 @@ I reported on the Crash of Air India flight 171, which crashed on the Ahmedabad 
 [Click Here](https://github.com/tejashreehn610-blip/Aircrash-Report/blob/87ad5f9c15154d4f41930726e8e51594ae7e754f/AIR%20INDIA%20FLIGHT%20171%20CRASH%20REPORT%20(1).pdf) to view my Air Crash Investigation Report.\
 The final official investigation report for AIT INDIA FLIGHT 171 is not yet been released.\
 **References :** \
-[AIR CRASH INVESTIGATION VIDEO](https://youtu.be/Hrdp50Dm_FE?si=FSHaGTcWtqf7elDO)
+[AIR CRASH INVESTIGATION VIDEO](https://youtu.be/Hrdp50Dm_FE?si=FSHaGTcWtqf7elDO)\
+# TASK 6 Flight Data Logging & Analysis :
+**Objective :**\
+ To explore the methodology behind air crash investigations and learn how aviation safety evolves from past incidents.\
+1. Extract log files from a Pixhawk/APM flight controller.\
+2. Analyze flight stability, GPS accuracy, battery performance using Mission Planner.\
+3. Generate graphs for:\
+Altitude vs time.
+Throttle & Battery vs time consumption.
+Velocity vs time\
+**Learnings and Outcomes :**\
+1.Crash Log :\
+* Crash Auto Log:\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/8a811e412840c9c9a2f41a2eb41208f181b595d1/Screenshot%202026-10-08%20141753.png)\
+* Altitude vs Time:\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/b6d486013a083e63f313a96759fb77d49b0014a6/Screenshot%202026-10-08%20142458.png)\
+This graph shows that the altitude remains below zero throughout the log.\
+The vehicle never gains positive altitude, indicating no successful takeoff.\
+Small fluctuations suggest minor throttle inputs or sensor noise while staying on the ground.\
+This behavior is consistent with a failed takeoff or crash shortly after arming.\
+2.Simulator Log :\
+* Simulator Auto Log
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/0c541fc5efef816bff0b50af3fc8e3770afaa76d/Screenshot%202026-10-08%20143452.png)\
+* Altitude vs Time:\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/80749024d1f887059cca4126b68d70107b6b7f37/Screenshot%202026-10-08%20143650.png)\
+This graph shows the altitude used by the flight controller for control.
+The altitude stays near 0 m initially, indicating the vehicle is on the ground, during STABILISE mode.
+A sharp rise to about 150 m represents the takeoff and rapid climb phase, during AUTO mode.
+Such a steep change is typical in simulator or auto-mission flights, where altitude is commanded quickly.\
+* Throttle vs Time:\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/80749024d1f887059cca4126b68d70107b6b7f37/Screenshot%202026-10-08%20143829.png)\
+This graph shows the actual throttle output commanded by the flight controller.
+The throttle remains near 0 initially, indicating the vehicle is on the ground or disarmed.
+A sharp rise to about 0.45–0.48 corresponds to takeoff and climb, where higher throttle is required.\
+* Battery Consumption vs Time :\
+![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/80749024d1f887059cca4126b68d70107b6b7f37/Screenshot%202026-10-08%20143956.png)\
+This graph shows the total battery capacity consumed (in mAh) since arming.
+The flat line at the start indicates no power draw while the vehicle is on the ground.
+The sharp upward rise corresponds to takeoff and active flight, where current is being drawn continuously.
+The final value (~1740 mAh) represents the total energy used during the flight.\
+3. AMS Log :
+* Auto Log :
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/660ca2b41335676166c91d74c3de318bc2a80c04/Screenshot%202026-10-08%20145017.png)\
+* Altitude vs Time
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/660ca2b41335676166c91d74c3de318bc2a80c04/Screenshot%202026-10-08%20145123.png)\
+A stable altitude curve indicates good vertical control and sensor reliability.\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/97ecbb2521b42e3c07434ec6e8ef33be95b2cf5d/WhatsApp%20Image%202026-10-11%20at%206.13.03%20PM.jpeg)\
+ Consistent velocity indicates predictable flight dynamics.\
 # TASK 7 Introduction to ROS 2 for UAVs :
 **Objective :**
  To get started with the Robot Operating System (ROS) 2 ecosystem and understand its application in UAV communication through node-based architecture.
@@ -24,5 +71,6 @@ The final official investigation report for AIT INDIA FLIGHT 171 is not yet been
 ![input](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/70499f04c35a81aa3dd752c740e9e5d8386b4f8c/Screenshot%202026-10-11%20160317.png)setup code
 ![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/e8dced9368ebf5e4ca7c8eb5aad35206ecf047e0/Screenshot%202026-10-11%20160304.png)Suscriber code\
 ![image](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/bc86cc8471f0b6a273408cc1924dafe70510fef4/Screenshot%202026-10-10%20184512.png)Suscriber output\
-[click here](https://github.com/tejashreehn610-blip/ROS2.git) to view my R0S 2 documentation.
+[click here](https://github.com/tejashreehn610-blip/ROS2.git) to view my R0S 2 documentation.\
+
 
