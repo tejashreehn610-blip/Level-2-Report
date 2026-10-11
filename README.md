@@ -1,4 +1,84 @@
-# TASK 3 Introduction to MATLAB :
+# TASK 1 UAV Assembly & Flight Controller Configuration :
+
+---
+
+## 1. Project Overview & Objectives
+
+*   **Objective:** Collaboratively assemble, wire, and configure a fully functional quadcopter integrated with GPS, an ExpressLRS (ELRS) radio receiver, and an ArduPilot-compatible flight controller.
+*   **Scope:** Mechanical assembly, power distribution, electronic speed controller (ESC) calibration, radio binding (Radiomaster TX16S & RP1), telemetry setup via Mission Planner, and comprehensive sensor calibration.
+
+---
+
+## 2. Team Members & Work Distribution
+
+| Team Member | Assigned Role & Responsibilities |
+| :--- | :--- |
+| **[Team Lead / Member 1]** | Frame assembly, motor/ESC soldering, power distribution board (PDB) management, and mechanical structural integrity. |
+| **[Member 2]** | Flight controller mounting, vibration isolation, wiring harness routing, and GPS module positioning. |
+| **[Member 3]** | Radio transmitter (TX16S) configuration, ExpressLRS (RP1) receiver binding, and channel mapping. |
+| **[Member 4]** | Mission Planner firmware flashing, telemetry setup, sensor calibration (accelerometer, compass), and pre-arm checks. |
+
+---
+
+## 3. Bill of Materials (BOM)
+
+1.  **Frame:** Carbon fiber quadcopter frame (e.g., F450 or equivalent).
+2.  **Flight Controller (FC):** ArduPilot-supported flight controller board (e.g., Pixhawk or Matek).
+3.  **Radio System:** Radiomaster TX16S transmitter paired with a Radiomaster RP1 (ELRS) receiver.
+4.  **Propulsion System:** Brushless DC motors, Electronic Speed Controllers (ESCs), and matched propellers.
+5.  **Navigation Module:** GPS + Compass module (e.g., M8N / M10 series).
+6.  **Power System:** LiPo battery and power module for real-time voltage and current sensing.
+
+---
+
+## 4. Step-by-Step Assembly & Wiring Procedure
+
+### Step A: Mechanical Assembly & Power Distribution
+*   Securely mount the brushless motors to the carbon fiber frame arms using threadlocker (Loctite) on all metal screws to prevent vibration-induced loosening.
+*   Solder the ESC power leads to the Power Distribution Board (PDB) or battery leads, ensuring correct polarity ($+$ and $-$). Connect the three motor phase wires to the ESC outputs (any two can be swapped later if motor rotation direction needs reversal).
+
+### Step B: Flight Controller Mounting & Vibration Isolation
+*   Mount the flight controller near the exact center of gravity of the quadcopter frame using anti-vibration dampening double-sided tape or silicone mounts.
+*   Route all signal and power wires cleanly away from high-current ESC wires to minimize electromagnetic interference (EMI).
+
+---
+
+## 5. Radio Transmitter & Receiver Binding (Radiomaster TX16S & RP1)
+
+1.  **Firmware Sync:** Ensure both the Radiomaster TX16S internal/external ELRS module and the RP1 receiver are flashed with compatible ExpressLRS major firmware versions.
+2.  **Binding Procedure:** Power the receiver on and off three times (or use the ExpressLRS Lua script on the TX16S) to enter bind mode, confirming solid LED status upon successful handshake.
+3.  **Channel Mapping:** Configure transmitter channels in EdgeTX/OpenTX on the TX16S using the standard AETR (Aileron, Elevator, Throttle, Rudder) mapping.
+
+---
+
+## 6. Mission Planner Setup & Firmware Flashing
+
+1.  **Connection:** Connect the flight controller to the ground station laptop via a secure USB cable. Open **Mission Planner**, select the correct COM port, and set the baud rate to `115200`.
+2.  **Firmware Installation:** Navigate to the **Initial Setup > Install Firmware** tab and select **ArduCopter** to flash the latest stable firmware matching your hardware board.
+3.  **Frame Type Selection:** Define the multirotor frame class (Quad) and exact motor layout geometry.
+
+---
+
+## 7. Sensor Calibration
+
+*   **Accelerometer Calibration:** Perform the standard 6-point calibration routine in Mission Planner (Level, Left, Right, Nose Down, Nose Up, Back) ensuring the drone is held steady at each orientation.
+*   **Compass Calibration:** Execute the live calibration routine, rotating the quadcopter smoothly across all axes until green completion bars appear and offsets are saved.
+*   **Radio Calibration:** Verify that stick inputs on the TX16S map correctly from $1000\text{ }\mu\text{s}$ to $2000\text{ }\mu\text{s}$ with center trims at $1500\text{ }\mu\text{s}$.
+
+---
+
+## 8. Optional Task: Lidar / Ultrasonic Obstacle Avoidance Integration
+
+*   **Hardware Integration:** Connect a rangefinder (e.g., TFmini Lidar or HC-SR04 ultrasonic sensor) to an available I2C or Serial/UART port on the flight controller.
+*   **Parameter Configuration:** Set rangefinder parameters in Mission Planner (`RNGFND1_TYPE`, `RNGFND1_MIN_CM`, `RNGFND1_MAX_CM`).
+*   **Behavioral Logic:** Implement companion computer scripts (via DroneKit/MAVLink) to read distance telemetry and automatically trigger braking or course deviation when obstacles are detected within safety margins.
+
+---
+
+## 9. Conclusion & Submission Guidelines
+
+*   **Report Compilation:** Combine all text sections, wiring diagrams, team contributions, and calibration screenshots into a formal Word document (`.docx`), then export to `.PDF`.
+*   **GitHub & Portal Upload:** Push the final PDF report and parameter backup files (`.param`) to a public GitHub repository, and post the repository link on the MARVEL portal under Task 1.# TASK 3 Introduction to MATLAB :
 **Objective :** To gain foundational knowledge of MATLAB and Simulink.
 **Learnings and Outcomes :**\
 I have learnt the basics of MATLAB.
