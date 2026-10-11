@@ -1,3 +1,9 @@
+# TASK 3 Introduction to MATLAB :
+**Objective :** To gain foundational knowledge of MATLAB and Simulink.
+**Learnings and Outcomes :**\
+I have learnt the basics of MATLAB.
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/e76826e524ae5ba391d4d6b7c7e0484e58a0d3c0/Screenshot%202026-10-09%20235100.png)\
+![IMAGE](https://raw.githubusercontent.com/tejashreehn610-blip/Level-2-Report/e76826e524ae5ba391d4d6b7c7e0484e58a0d3c0/Screenshot%202026-10-10%20000110.png)\
 # TASK 5 RULES IN THE RULE BOOK WRITTEN BY BLOOD :
 **Objective :**
 * Take an example of a previous Air Crash from [Wyngx](https://www.youtube.com/@_WyngX/videos) or any other source of your choice.
